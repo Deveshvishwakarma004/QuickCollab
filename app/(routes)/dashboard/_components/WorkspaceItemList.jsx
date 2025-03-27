@@ -2,6 +2,10 @@
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import React from 'react'
+import { toast } from 'sonner';
+import WorkspaceOptions from './WorkspaceOptions';
+import { deleteDoc, doc } from 'firebase/firestore';
+import { db } from '@/config/firebaseConfig';
 
 function WorkspaceItemList({workspaceList}) {
 
@@ -10,6 +14,11 @@ function WorkspaceItemList({workspaceList}) {
   const OnClickWorkspaceItem=(workspaceId)=>{
       router.push('/workspace/'+workspaceId)
   }
+  const DeleteWorkspace=async(docId)=>{
+        await deleteDoc(doc(db, "Workspace", docId));
+        console.log("delete")
+        toast('Workspace Deleted !')
+      }
 
   return (
     <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6'>
@@ -22,10 +31,11 @@ function WorkspaceItemList({workspaceList}) {
                 width={400} height={200} alt='cover'
                 className='h-[150px] object-cover rounded-t-xl'
                 />
-                <div className='p-4 rounded-b-xl'>
-                    <h2 className='flex gap-2'>{workspace?.emoji} {workspace.workspaceName}</h2>
+                <div className='p-4 rounded-b-xl flex justify-between'>
+                    <h2 className='flex gap-1'>{workspace?.Emoji} {workspace.workspaceName}</h2>     
+                <WorkspaceOptions doc={doc} DeleteWorkspace={(docId)=>DeleteWorkspace(docId)}/>
                 </div>
-            </div>
+                </div>
         ))}
     </div>
   )
