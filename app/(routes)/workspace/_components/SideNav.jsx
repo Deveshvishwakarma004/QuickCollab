@@ -33,7 +33,6 @@ function SideNav({params}) {
     where('workspaceId','==',Number(params?.workspaceid)));
     const unsubscribe=onSnapshot(q,(querySnapshot)=>{
         setDocumentList([]);
-
         querySnapshot.forEach((doc)=>{
             setDocumentList(documentList=>[...documentList,doc.data()])
         })

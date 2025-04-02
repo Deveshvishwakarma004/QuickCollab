@@ -1,4 +1,4 @@
-import { Link2Icon, MoreVertical, PenBox, Trash2 } from 'lucide-react'
+import { Download, Link2Icon, MoreVertical, PenBox, Trash2 } from 'lucide-react'
 import React from 'react'
 import {
     DropdownMenu,
@@ -10,7 +10,7 @@ import {
   } from "@/components/ui/dropdown-menu"
 
   
-function DocumentOptions({doc,deleteDocument}) {
+function DocumentOptions({doc,deleteDocument, SaveAsPDF}) {
   return (
     <div>
        
@@ -19,6 +19,10 @@ function DocumentOptions({doc,deleteDocument}) {
             <MoreVertical className='h-4 w-4'/>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
+        <DropdownMenuItem 
+            onClick={()=>SaveAsPDF(doc?.id)}
+            className="flex gap-2 text-blue-500"> 
+            <Download className='h-4 w-4'/>Save as PDF</DropdownMenuItem>
             <DropdownMenuItem 
             onClick={()=>deleteDocument(doc?.id)}
             className="flex gap-2 text-red-500"> 

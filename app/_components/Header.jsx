@@ -29,7 +29,7 @@ function Header() {
                     <div className="text-gray-600 dark:text-gray-300 lg:pr-4 lg:w-auto w-full lg:pt-0">
                         <ul className="tracking-wide font-medium lg:text-sm flex-col flex lg:flex-row gap-6 lg:gap-0">
                             <li>
-                                <a href="/sign-in" className="block md:px-4 transition hover:text-primary">
+                                <a href="/dashboard" className="block md:px-4 transition hover:text-primary">
                                     <span>Log in</span>
                                 </a>
                             </li>
@@ -38,7 +38,7 @@ function Header() {
 
                     <div className="mt-12 lg:mt-0">
                         <a
-                            href="/sign-up"
+                            href="/dashboard"
                             className="relative flex h-9 w-full items-center justify-center px-4 before:absolute before:inset-0 before:rounded-full before:bg-primary before:transition 
                             before:duration-300 hover:before:scale-105 
                             active:duration-75 active:before:scale-95 sm:w-max"
