@@ -36,8 +36,8 @@ function RichDocumentEditor({ params }) {
   const SaveDocument = () => {
     console.log("UPDATE")
     ref.current.save().then(async (outputData) => {
-      console.log(outputData);
       const docRef = doc(db, 'documentOutput', params?.documentid);
+     
       await updateDoc(docRef, {
         output: JSON.stringify(outputData),
         editedBy: user?.primaryEmailAddress?.emailAddress
@@ -57,9 +57,9 @@ function RichDocumentEditor({ params }) {
   const InitEditor = () => {
     if (!editor?.current) {
       editor = new EditorJS({
-        onChange: (api,event) => {
+        onChange: (api, event) => {
            SaveDocument()
-          // ref.current.save().then(async (outputData) => {console.log(outputData)})
+          //ref.current.save().then(async (outputData) => {console.log(outputData)})
         },
         onReady:()=>{
           GetDocumentOutput()
@@ -120,4 +120,4 @@ function RichDocumentEditor({ params }) {
   )
 }
 
-export default RichDocumentEditor
+export default RichDocumentEditor;
