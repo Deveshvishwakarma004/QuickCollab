@@ -47,7 +47,9 @@ export function Room({ children,params }) {
     }}
     >
       <RoomProvider id={params?.documentid?params?.documentid:'1'}>
-        <ClientSideSuspense fallback={<div>Loading…</div>}>
+        <ClientSideSuspense fallback={<div className="flex justify-center items-center h-64">
+        <div className="animate-pulse text-gray-600">Loading...</div>
+      </div>}>
           {children}
         </ClientSideSuspense>
       </RoomProvider>

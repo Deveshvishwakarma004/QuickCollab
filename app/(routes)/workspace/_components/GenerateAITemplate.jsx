@@ -19,14 +19,20 @@ function GenerateAITemplate({ setGenerateAIOutput }) {
   const GenerateFromAI = async () => {
     setLoading(true);
     const PROMPT = 'Generate content for a Draft.js editor in raw JSON format for: ' + userInput;
-
+  
     try {
       const result = await chatSession.sendMessage(PROMPT);
       const text = await result.response.text();
-
+  
       console.log("🧠 Raw AI response:", text);
-
-      const parsed = JSON.parse(text);
+  
+      // Handle code block or markdown output
+      const cleaned = text
+        .replace(/```json|```js|```/g, '') // Remove markdown code fences
+        .trim();
+  
+      const parsed = JSON.parse(cleaned);
+  
       if (parsed?.blocks && parsed?.entityMap !== undefined) {
         setGenerateAIOutput(parsed);
       } else {
@@ -35,7 +41,7 @@ function GenerateAITemplate({ setGenerateAIOutput }) {
     } catch (error) {
       console.error("Error parsing AI output:", error);
     }
-
+  
     setLoading(false);
     setOpen(false);
   };

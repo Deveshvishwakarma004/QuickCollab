@@ -13,7 +13,7 @@ function CommentBox() {
       <Thread key={thread.id} thread={thread} />
     ))}
     {/* <Composer /> */}
-    <Composer className='z-10'>
+    <Composer className='z-100'>
       <Composer.Submit className="btn-primary" style={{ color: "#ffffff" }}>
         Reply
       </Composer.Submit>

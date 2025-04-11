@@ -1,5 +1,5 @@
 {
-  "name": "microsoft-loop-clone",
+  "name": "quick-collab",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -60,10 +60,12 @@
     "@tiptap/starter-kit": "^2.11.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "docx": "^9.3.0",
     "draft-js": "^0.11.7",
     "editorjs-alert": "^1.1.4",
     "editorjs-button": "^3.0.3",
     "emoji-picker-react": "^4.11.1",
+    "file-saver": "^2.0.5",
     "firebase": "^10.12.4",
     "jspdf": "^3.0.1",
     "lowlight": "^2.8.1",

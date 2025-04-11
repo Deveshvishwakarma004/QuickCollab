@@ -10,7 +10,7 @@ import {
   } from "@/components/ui/dropdown-menu"
 
   
-function DocumentOptions({doc,deleteDocument, SaveAsPDF}) {
+function DocumentOptions({doc,deleteDocument, SaveAsPDF , SaveAsWord}) {
   return (
     <div>
        
@@ -19,6 +19,10 @@ function DocumentOptions({doc,deleteDocument, SaveAsPDF}) {
             <MoreVertical className='h-4 w-4'/>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
+        <DropdownMenuItem 
+            onClick={()=>SaveAsWord(doc?.id)}
+            className="flex gap-2 text-green-500"> 
+            <Download className='h-4 w-4'/>Save as Word</DropdownMenuItem>
         <DropdownMenuItem 
             onClick={()=>SaveAsPDF(doc?.id)}
             className="flex gap-2 text-blue-500"> 
